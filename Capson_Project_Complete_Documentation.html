@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Capson Logistics Project — Complete Documentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,900;1,300;1,600&family=DM+Mono:wght@300;400;500&family=Cabin:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:   #0F1B2D;
+  --navy2:  #162236;
+  --navy3:  #1D2E47;
+  --steel:  #2A4A6B;
+  --blue:   #2563EB;
+  --blue-lt:#3B82F6;
+  --sky:    #BAD4F7;
+  --cream:  #F5F0E8;
+  --warm:   #EDE8DC;
+  --ink:    #1A1A1A;
+  --ink2:   #3D3D3D;
+  --muted:  #6B7280;
+  --rule:   #D4CFC5;
+  --white:  #FFFFFF;
+  --gold:   #C9923A;
+  --gold-lt:#F5E6CC;
+  --red:    #C0392B;
+  --red-lt: #FDECEA;
+  --green:  #166534;
+  --green-lt:#DCFCE7;
+  --r: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background: var(--navy);
+  color: var(--cream);
+  font-family: 'Cabin', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  scroll-behavior: smooth;
+}
+
+/* ── SIDEBAR NAV ── */
+.sidebar {
+  position: fixed; top: 0; left: 0;
+  width: 260px; height: 100vh;
+  background: var(--navy2);
+  border-right: 1px solid var(--navy3);
+  overflow-y: auto; z-index: 100;
+  padding: 28px 0 40px;
+}
+.sidebar-brand {
+  padding: 0 24px 24px;
+  border-bottom: 1px solid var(--navy3);
+  margin-bottom: 16px;
+}
+.sidebar-brand .logo {
+  font-family: 'Fraunces', serif;
+  font-size: 18px; font-weight: 900;
+  color: var(--cream); line-height: 1.2;
+}
+.sidebar-brand .sub {
+  font-size: 11px; color: var(--muted);
+  margin-top: 4px; letter-spacing: .04em;
+}
+.nav-section {
+  padding: 8px 24px 4px;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--steel); margin-top: 8px;
+}
+.nav-link {
+  display: block; padding: 7px 24px;
+  font-size: 13px; color: rgba(245,240,232,.6);
+  text-decoration: none; border-left: 2px solid transparent;
+  transition: all .15s;
+}
+.nav-link:hover { color: var(--cream); background: var(--navy3); border-left-color: var(--blue); }
+.nav-link.active { color: var(--sky); border-left-color: var(--blue-lt); background: rgba(37,99,235,.08); }
+
+/* ── MAIN ── */
+.main { margin-left: 260px; padding: 0; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy2);
+  border-bottom: 1px solid var(--navy3);
+  padding: 72px 64px 64px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(37,99,235,.12) 0%, transparent 70%);
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--blue-lt);
+  letter-spacing: .18em; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 52px; font-weight: 900; line-height: 1.05;
+  color: var(--cream); margin-bottom: 20px;
+}
+.hero h1 em { font-style: italic; color: var(--sky); }
+.hero-desc {
+  font-size: 16px; color: rgba(245,240,232,.65);
+  max-width: 600px; line-height: 1.7; margin-bottom: 36px;
+}
+.hero-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill {
+  padding: 6px 14px; border-radius: 999px; font-size: 12px;
+  font-weight: 600; border: 1px solid;
+}
+.pill-blue { background: rgba(37,99,235,.15); color: var(--sky); border-color: rgba(37,99,235,.3); }
+.pill-gold { background: rgba(201,146,58,.15); color: #F5C97A; border-color: rgba(201,146,58,.3); }
+.pill-green { background: rgba(22,101,52,.2); color: #86EFAC; border-color: rgba(22,101,52,.3); }
+
+/* ── CONTENT SECTIONS ── */
+.section {
+  padding: 64px;
+  border-bottom: 1px solid var(--navy3);
+}
+.section:last-child { border-bottom: none; }
+
+.section-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--blue-lt);
+  letter-spacing: .2em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.section h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 32px; font-weight: 900;
+  color: var(--cream); margin-bottom: 8px; line-height: 1.15;
+}
+.section-intro {
+  font-size: 15px; color: rgba(245,240,232,.6);
+  max-width: 680px; line-height: 1.7; margin-bottom: 40px;
+  border-left: 3px solid var(--blue);
+  padding-left: 16px;
+}
+
+/* ── H3 ── */
+h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px; font-weight: 600;
+  color: var(--sky); margin: 40px 0 12px;
+}
+
+/* ── PROSE ── */
+p {
+  font-size: 14.5px; color: rgba(245,240,232,.75);
+  line-height: 1.8; margin-bottom: 14px; max-width: 720px;
+}
+p strong { color: var(--cream); font-weight: 600; }
+
+/* ── DAX CODE BLOCK ── */
+.dax {
+  background: #0A1628;
+  border: 1px solid var(--navy3);
+  border-left: 3px solid var(--blue-lt);
+  border-radius: var(--r);
+  padding: 20px 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px; line-height: 1.8;
+  color: #CBD5E1; margin: 16px 0 24px;
+  overflow-x: auto; position: relative;
+}
+.dax .kw  { color: #7DD3FC; }
+.dax .fn  { color: #86EFAC; }
+.dax .str { color: #FCA5A5; }
+.dax .cm  { color: #475569; font-style: italic; }
+.dax .op  { color: #FCD34D; }
+.copy-btn {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--navy3); border: 1px solid var(--steel);
+  color: rgba(245,240,232,.5); font-family: 'DM Mono', monospace;
+  font-size: 11px; padding: 4px 10px; border-radius: 4px;
+  cursor: pointer; transition: all .15s;
+}
+.copy-btn:hover { color: var(--cream); background: var(--steel); }
+
+/* ── CARDS ── */
+.card {
+  background: var(--navy2);
+  border: 1px solid var(--navy3);
+  border-radius: var(--r);
+  padding: 24px; margin-bottom: 16px;
+}
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 16px; font-weight: 600;
+  color: var(--cream); margin-bottom: 6px;
+}
+.card-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--blue-lt);
+  margin-bottom: 12px; letter-spacing: .06em;
+}
+.card p { margin-bottom: 0; font-size: 13.5px; }
+
+/* ── CARD GRID ── */
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+.card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+
+/* ── LABEL BADGES ── */
+.badge {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  padding: 3px 10px; border-radius: 999px; margin-left: 8px;
+  vertical-align: middle;
+}
+.b-kpi   { background: rgba(37,99,235,.18);  color: var(--sky); }
+.b-chart { background: rgba(22,101,52,.2);   color: #86EFAC; }
+.b-drop  { background: rgba(201,146,58,.15); color: #F5C97A; }
+.b-tile  { background: rgba(139,92,246,.15); color: #C4B5FD; }
+.b-list  { background: rgba(6,182,212,.12);  color: #67E8F9; }
+.b-fix   { background: rgba(192,57,43,.18);  color: #FCA5A5; }
+.b-good  { background: rgba(22,101,52,.2);   color: #86EFAC; }
+
+/* ── AXIS BLOCKS ── */
+.axis-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0 24px; }
+.axis-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 24px; }
+.ax-block { padding: 14px 16px; border-radius: var(--r); }
+.ax-x   { background: rgba(37,99,235,.1);   border: 1px solid rgba(37,99,235,.25); }
+.ax-y   { background: rgba(22,101,52,.1);   border: 1px solid rgba(22,101,52,.25); }
+.ax-leg { background: rgba(201,146,58,.1);  border: 1px solid rgba(201,146,58,.25); }
+.ax-flt { background: rgba(139,92,246,.1);  border: 1px solid rgba(139,92,246,.25); }
+.ax-lbl { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 7px; }
+.ax-x   .ax-lbl { color: var(--sky); }
+.ax-y   .ax-lbl { color: #86EFAC; }
+.ax-leg .ax-lbl { color: #F5C97A; }
+.ax-flt .ax-lbl { color: #C4B5FD; }
+.ax-field { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600; color: var(--cream); margin-bottom: 3px; }
+.ax-tbl   { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 7px; }
+.ax-note  { font-size: 12px; color: rgba(245,240,232,.55); line-height: 1.55; }
+
+/* ── TABLES ── */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0 24px; }
+.data-table th {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); padding: 10px 14px;
+  border-bottom: 1px solid var(--navy3); text-align: left;
+}
+.data-table td {
+  padding: 10px 14px; border-bottom: 1px solid var(--navy3);
+  color: rgba(245,240,232,.7); vertical-align: top;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table td:first-child { color: var(--cream); font-weight: 500; }
+.data-table td code {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  background: var(--navy3); padding: 2px 7px;
+  border-radius: 4px; color: var(--sky);
+}
+
+/* ── COMPARE BOX ── */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0 24px; }
+.cmp { padding: 18px; border-radius: var(--r); }
+.cmp-wrong { background: rgba(192,57,43,.08); border: 1px solid rgba(192,57,43,.25); }
+.cmp-right { background: rgba(22,101,52,.08); border: 1px solid rgba(22,101,52,.25); }
+.cmp-label { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 8px; }
+.cmp-wrong .cmp-label { color: #FCA5A5; }
+.cmp-right .cmp-label { color: #86EFAC; }
+.cmp-title { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600; color: var(--cream); margin-bottom: 6px; }
+.cmp p { font-size: 13px; max-width: none; }
+
+/* ── STEP ── */
+.step { display: flex; gap: 16px; margin-bottom: 18px; align-items: flex-start; }
+.step-n {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--blue); color: #fff;
+  font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.step-body { font-size: 13.5px; color: rgba(245,240,232,.7); line-height: 1.65; }
+.step-body strong { color: var(--cream); }
+
+/* ── HIGHLIGHT BOX ── */
+.highlight {
+  background: rgba(37,99,235,.08);
+  border: 1px solid rgba(37,99,235,.2);
+  border-radius: var(--r); padding: 18px 20px;
+  margin: 16px 0 24px; display: flex; gap: 14px;
+}
+.highlight-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.highlight-body { font-size: 13.5px; color: rgba(245,240,232,.7); line-height: 1.65; }
+.highlight-body strong { color: var(--cream); }
+
+.warn  { background: rgba(192,57,43,.08); border-color: rgba(192,57,43,.2); }
+.good  { background: rgba(22,101,52,.08); border-color: rgba(22,101,52,.2); }
+.amber { background: rgba(201,146,58,.08); border-color: rgba(201,146,58,.2); }
+
+/* ── DIVIDER ── */
+.divider { height: 1px; background: var(--navy3); margin: 32px 0; }
+
+/* ── KPI ROW ── */
+.kpi-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin: 20px 0 32px; }
+.kpi-box {
+  background: var(--navy2); border: 1px solid var(--navy3);
+  border-radius: var(--r); padding: 16px; text-align: center;
+}
+.kpi-val { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 900; color: var(--cream); }
+.kpi-lbl { font-size: 11px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: .06em; }
+
+/* ── SLICER PAIR ── */
+.slicer-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+.slicer-card {
+  background: var(--navy2); border: 1px solid var(--navy3);
+  border-radius: var(--r); overflow: hidden;
+}
+.slicer-top { padding: 16px 18px 12px; }
+.slicer-name { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: var(--cream); margin-bottom: 4px; }
+.slicer-col  { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--sky); margin-bottom: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+.chip {
+  font-size: 11px; padding: 3px 9px; border-radius: 999px;
+  background: var(--navy3); color: rgba(245,240,232,.6);
+  border: 1px solid rgba(255,255,255,.06);
+}
+.slicer-bot { padding: 10px 18px 14px; background: rgba(0,0,0,.15); border-top: 1px solid var(--navy3); }
+.slicer-note { font-size: 12.5px; color: rgba(245,240,232,.55); line-height: 1.55; }
+
+/* ── TOC ── */
+.toc { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 24px 0 0; }
+.toc-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px; border-radius: var(--r);
+  background: var(--navy2); border: 1px solid var(--navy3);
+  text-decoration: none; color: rgba(245,240,232,.65);
+  font-size: 13px; transition: all .15s;
+}
+.toc-item:hover { color: var(--cream); border-color: var(--steel); background: var(--navy3); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--blue-lt); width: 24px; flex-shrink: 0; }
+
+/* ── FOOTER ── */
+.footer {
+  padding: 48px 64px;
+  background: var(--navy2); border-top: 1px solid var(--navy3);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 900; color: var(--cream); }
+.footer-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.footer-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); text-align: right; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.section { animation: fadeUp .5s ease both; }
+</style>
+</head>
+<body>
+
+<!-- ══════ SIDEBAR ══════ -->
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    <div class="logo">Capson<br>Logistics</div>
+    <div class="sub">Project Documentation · TS Academy</div>
+  </div>
+
+  <div class="nav-section">Overview</div>
+  <a class="nav-link active" href="#overview">Project Overview</a>
+  <a class="nav-link" href="#analysis">How the Analysis Was Done</a>
+
+  <div class="nav-section">DAX Measures</div>
+  <a class="nav-link" href="#dax-revenue">Dashboard 1 — Revenue</a>
+  <a class="nav-link" href="#dax-driver">Dashboard 2 — Driver</a>
+  <a class="nav-link" href="#dax-fleet">Dashboard 3 — Fleet</a>
+  <a class="nav-link" href="#dax-safety">Dashboard 4 — Safety & Fuel</a>
+  <a class="nav-link" href="#dax-profit">Profit DAX Fix</a>
+
+  <div class="nav-section">Chart Setup</div>
+  <a class="nav-link" href="#charts-revenue">Revenue Charts</a>
+  <a class="nav-link" href="#charts-driver">Driver Charts</a>
+  <a class="nav-link" href="#charts-fleet">Fleet Charts</a>
+  <a class="nav-link" href="#charts-safety">Safety & Fuel Charts</a>
+  <a class="nav-link" href="#driver-fix">Driver Chart Fix</a>
+
+  <div class="nav-section">Slicers</div>
+  <a class="nav-link" href="#slicers">2 Slicers Per Dashboard</a>
+
+  <div class="nav-section">Report</div>
+  <a class="nav-link" href="#report">Analysis Summary</a>
+</nav>
+
+<!-- ══════ MAIN ══════ -->
+<main class="main">
+
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="hero-eyebrow">TS Academy · Data Analytics · Final Project</div>
+  <h1>Capson <em>Logistics</em><br>Project Docs</h1>
+  <p class="hero-desc">Everything I built, every DAX measure I wrote, every chart axis I set up, and every decision I made — all in one place. This is the complete documentation for my final project at TS Academy.</p>
+  <div class="hero-pills">
+    <span class="pill pill-blue">Power BI</span>
+    <span class="pill pill-blue">Excel</span>
+    <span class="pill pill-gold">DAX</span>
+    <span class="pill pill-gold">14 Data Tables</span>
+    <span class="pill pill-green">$262.5M Revenue Analysed</span>
+    <span class="pill pill-green">4 Dashboards</span>
+  </div>
+
+  <div class="toc" style="margin-top:40px">
+    <a class="toc-item" href="#analysis"><span class="toc-num">01</span>How the Analysis Was Done</a>
+    <a class="toc-item" href="#dax-revenue"><span class="toc-num">02</span>DAX Measures — All 4 Dashboards</a>
+    <a class="toc-item" href="#charts-revenue"><span class="toc-num">03</span>Chart Axis Setup Guide</a>
+    <a class="toc-item" href="#driver-fix"><span class="toc-num">04</span>Driver Chart Fix</a>
+    <a class="toc-item" href="#slicers"><span class="toc-num">05</span>Slicer Guide</a>
+    <a class="toc-item" href="#report"><span class="toc-num">06</span>Analysis Report Summary</a>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SECTION 1 — HOW THE ANALYSIS WAS DONE
+══════════════════════════════════════════ -->
+<div class="section" id="analysis">
+  <div class="section-eyebrow">Section 01</div>
+  <h2>How the Analysis Was Done</h2>
+  <p class="section-intro">This is the plain English version of everything I did — from the raw Excel files all the way to the finished Power BI report. No jargon, just the real steps.</p>
+
+  <h3>Step 1 — Joining all 14 files in Excel</h3>
+  <p>The dataset came as 14 separate Excel files. Each file was its own table — Drivers, Trucks, Loads, Trips, Routes, Customers, Fuel Purchases, Maintenance Records, Safety Incidents, Delivery Events, Facilities, Trailers, Driver Monthly Metrics, and Truck Utilisation Metrics.</p>
+  <p>Before I even opened Power BI, I had to bring all of these into one workbook. I used Excel to do that. Each sheet kept its own name so I could track which data came from where. The most important thing I checked was that every table had a matching key — for example, <strong>load_id</strong> in Loads matched <strong>load_id</strong> in Trips. Without that, nothing connects properly in Power BI.</p>
+
+  <div class="highlight">
+    <div class="highlight-icon">💡</div>
+    <div class="highlight-body">The biggest lesson from this step — <strong>clean data before you build anything.</strong> A dashboard built on messy data will always give you wrong answers, no matter how good your DAX is.</div>
+  </div>
+
+  <h3>Step 2 — Loading into Power BI</h3>
+  <p>Once the Excel workbook was clean, I loaded it into Power BI using <strong>Get Data → Excel Workbook</strong>. I selected all 14 sheets at once. Power BI brought them in as separate tables in the data model.</p>
+  <p>After loading, I went to <strong>Model view</strong> and set up the relationships between tables. The key relationships were:</p>
+
+  <table class="data-table">
+    <thead><tr><th>From Table</th><th>Key Column</th><th>To Table</th><th>Relationship Type</th></tr></thead>
+    <tbody>
+      <tr><td>Loads</td><td><code>customer_id</code></td><td>customers</td><td>Many-to-one</td></tr>
+      <tr><td>Loads</td><td><code>route_id</code></td><td>Routes</td><td>Many-to-one</td></tr>
+      <tr><td>Trips</td><td><code>load_id</code></td><td>Loads</td><td>One-to-one</td></tr>
+      <tr><td>Trips</td><td><code>driver_id</code></td><td>Drivers</td><td>Many-to-one</td></tr>
+      <tr><td>Trips</td><td><code>truck_id</code></td><td>Trucks</td><td>Many-to-one</td></tr>
+      <tr><td>Purchases</td><td><code>trip_id</code></td><td>Trips</td><td>Many-to-one</td></tr>
+      <tr><td>Maintenance records</td><td><code>truck_id</code></td><td>Trucks</td><td>Many-to-one</td></tr>
+      <tr><td>Safety incidents</td><td><code>trip_id</code></td><td>Trips</td><td>Many-to-one</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Step 3 — Writing DAX measures</h3>
+  <p>Instead of dragging raw columns into visuals, I created DAX measures for every single number on the dashboards. This is the right way to do it because measures respect the relationships in your model and respond correctly to slicers and filters.</p>
+  <p>I wrote 25 measures in total across the 4 dashboards — covering revenue, OTD rates, MPG, utilisation, fuel costs, maintenance costs, safety claims, and profit.</p>
+
+  <h3>Step 4 — Building the 4 dashboards</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">Dashboard 1 — Revenue Overview</div>
+      <div class="card-meta">Loads table · Customers · Routes</div>
+      <p>Shows total revenue, monthly trends by year, revenue by booking type, revenue by load type, and quarterly performance.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Dashboard 2 — Driver Performance</div>
+      <div class="card-meta">Driver Monthly Metrics · Drivers</div>
+      <p>Shows OTD rate rankings, monthly OTD trends, revenue per driver, and OTD distribution across all 150 drivers.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Dashboard 3 — Fleet & Maintenance</div>
+      <div class="card-meta">Trucks Utilisation Metrics · Maintenance records</div>
+      <p>Shows fleet utilisation rate, MPG trends, maintenance cost by type, and total downtime hours.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Dashboard 4 — Safety & Fuel</div>
+      <div class="card-meta">Safety incidents · Purchases</div>
+      <p>Shows monthly fuel costs, price per gallon trend, safety claims by incident type, and preventable vs non-preventable breakdown.</p>
+    </div>
+  </div>
+
+  <h3>Step 5 — Writing the report pages</h3>
+  <p>Pages 5 and 6 of the Power BI report are written analysis pages. Not charts — actual written findings with tables and numbers. This is the part where I explained what the data means, not just what it shows. Any manager reading it could understand the business situation without needing to interact with the dashboard at all.</p>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SECTION 2 — DAX MEASURES
+══════════════════════════════════════════ -->
+<div class="section" id="dax-revenue">
+  <div class="section-eyebrow">Section 02 · Dashboard 1</div>
+  <h2>DAX Measures — Revenue Overview</h2>
+  <p class="section-intro">These are the 6 measures I created for the Revenue dashboard. Every number you see on that page comes from one of these.</p>
+
+  <!-- Total Revenue -->
+  <h3>Total Revenue <span class="badge b-kpi">KPI Card</span></h3>
+  <p>Adds up every revenue value across all 85,410 loads. This is the headline number — $262.5M over 3 years.</p>
+  <div class="dax" id="d1"><button class="copy-btn" onclick="cp('d1')">copy</button><span class="fn">Total Revenue</span> <span class="op">=</span>
+<span class="kw">SUM</span>( Loads[revenue] )</div>
+
+  <!-- Avg Monthly Revenue -->
+  <h3>Avg Monthly Revenue <span class="badge b-kpi">KPI Card</span></h3>
+  <p>Divides total revenue by the number of distinct months. Gives us the $7.29M monthly average.</p>
+  <div class="dax" id="d2"><button class="copy-btn" onclick="cp('d2')">copy</button><span class="fn">Avg Monthly Revenue</span> <span class="op">=</span>
+<span class="kw">DIVIDE</span>(
+    <span class="kw">SUM</span>( Loads[revenue] ),
+    <span class="kw">DISTINCTCOUNT</span>( Loads[load_date].[Month] )
+)</div>
+
+  <!-- Total Loads -->
+  <h3>Total Loads <span class="badge b-kpi">KPI Card</span></h3>
+  <p>Counts every row in the Loads table. Each row is one shipment.</p>
+  <div class="dax" id="d3"><button class="copy-btn" onclick="cp('d3')">copy</button><span class="fn">Total Loads</span> <span class="op">=</span>
+<span class="kw">COUNTROWS</span>( Loads )</div>
+
+  <!-- Active Customers -->
+  <h3>Active Customers <span class="badge b-kpi">KPI Card</span></h3>
+  <p>Counts only customers whose account_status is Active. Filters out inactive accounts so the number reflects who is actually trading with us.</p>
+  <div class="dax" id="d4"><button class="copy-btn" onclick="cp('d4')">copy</button><span class="fn">Active Customers</span> <span class="op">=</span>
+<span class="kw">CALCULATE</span>(
+    <span class="kw">COUNTROWS</span>( customers ),
+    customers[account_status] <span class="op">=</span> <span class="str">"Active"</span>
+)</div>
+
+  <!-- Revenue by Month -->
+  <h3>Revenue by Month <span class="badge b-chart">Line Chart</span></h3>
+  <p>Used on the monthly trend line chart. Place load_date (Month level) on the X-axis and this measure on the Y-axis. Add Year to the Legend to get the 3 coloured lines.</p>
+  <div class="dax" id="d5"><button class="copy-btn" onclick="cp('d5')">copy</button><span class="fn">Revenue by Month</span> <span class="op">=</span>
+<span class="kw">CALCULATE</span>(
+    <span class="kw">SUM</span>( Loads[revenue] ),
+    <span class="kw">ALLEXCEPT</span>( Loads, Loads[load_date] )
+)</div>
+
+  <!-- Revenue by Booking Type -->
+  <h3>Revenue by Booking Type <span class="badge b-chart">Donut Chart</span></h3>
+  <p>Powers the donut chart. Drag booking_type to the Legend field and this measure to Values. Power BI slices the donut automatically — Dedicated 49.6%, Spot 25.3%, Contract 25.1%.</p>
+  <div class="dax" id="d6"><button class="copy-btn" onclick="cp('d6')">copy</button><span class="fn">Revenue by Booking Type</span> <span class="op">=</span>
+<span class="kw">CALCULATE</span>(
+    <span class="kw">SUM</span>( Loads[revenue] ),
+    <span class="kw">ALLEXCEPT</span>( Loads, Loads[booking_type] )
+)</div>
+</div>
+
+
+<!-- DAX DRIVER -->
+<div class="section" id="dax-driver">
+  <div class="section-eyebrow">Section 02 · Dashboard 2</div>
+  <h2>DAX Measures — Driver Performance</h2>
+  <p class="section-intro">These 6 measures drive every visual on the driver dashboard. The most important one is Driver Avg OTD Rate — if you drag the raw column instead of using this measure, your rankings will be wrong.</p>
+
+  <h3>Fleet Avg OTD Rate <span class="badge b-kpi">KPI Card</span></h3>
+  <p>The fleet-wide average on-time delivery rate. Came out at 44.6% — meaning less than half of deliveries arrived on time.</p>
+  <div class="dax" id="d7"><button class="copy-btn" onclick="cp('d7')">copy</button><span class="fn">Fleet Avg OTD Rate</span> <span class="op">=</span>
+<span class="kw">AVERAGE</span>( 'Driver Montly Metrics'[on_time_delivery_rate] )</div>
+
+  <h3>Fleet Avg MPG <span class="badge b-kpi">KPI Card</span></h3>
+  <p>Fleet-wide average miles per gallon. Held at 6.50 across all 36 months — impressively consistent.</p>
+  <div class="dax" id="d8"><button class="copy-btn" onclick="cp('d8')">copy</button><span class="fn">Fleet Avg MPG</span> <span class="op">=</span>
+<span class="kw">AVERAGE</span>( 'Driver Montly Metrics'[average_mpg] )</div>
+
+  <h3>Avg Monthly Revenue per Driver <span class="badge b-kpi">KPI Card</span></h3>
+  <p>Average revenue each driver earns per month — came out at $57,600.</p>
+  <div class="dax" id="d9"><button class="copy-btn" onclick="cp('d9')">copy</button><span class="fn">Avg Monthly Revenue per Driver</span> <span class="op">=</span>
+<span class="kw">AVERAGE</span>( 'Driver Montly Metrics'[total_revenue] )</div>
+
+  <h3>Driver Avg OTD Rate <span class="badge b-chart">Bar Chart</span></h3>
+  <p>This is the measure that powers the Top 10 drivers ranking. Use AVERAGEX — not a simple AVERAGE — so each driver gets their own correct average instead of being blended together.</p>
+  <div class="dax" id="d10"><button class="copy-btn" onclick="cp('d10')">copy</button><span class="fn">Driver Avg OTD Rate</span> <span class="op">=</span>
+<span class="kw">AVERAGEX</span>(
+    <span class="kw">VALUES</span>( 'Driver Montly Metrics'[driver_id] ),
+    <span class="kw">CALCULATE</span>(
+        <span class="kw">AVERAGE</span>( 'Driver Montly Metrics'[on_time_delivery_rate] )
+    )
+)</div>
+
+  <h3>Driver Total Revenue <span class="badge b-chart">Horizontal Bar</span></h3>
+  <p>Total revenue per driver summed across all months. Used in the Top 10 Revenue bar chart.</p>
+  <div class="dax" id="d11"><button class="copy-btn" onclick="cp('d11')">copy</button><span class="fn">Driver Total Revenue</span> <span class="op">=</span>
+<span class="kw">CALCULATE</span>(
+    <span class="kw">SUM</span>( 'Driver Montly Metrics'[total_revenue] ),
+    <span class="kw">ALLEXCEPT</span>( 'Driver Montly Metrics', 'Driver Montly Metrics'[driver_id] )
+)</div>
+
+  <h3>Driver Count <span class="badge b-chart">Distribution Chart</span></h3>
+  <p>Counts distinct drivers per OTD bucket. Used in the OTD distribution column chart.</p>
+  <div class="dax" id="d12"><button class="copy-btn" onclick="cp('d12')">copy</button><span class="fn">Driver Count</span> <span class="op">=</span>
+<span class="kw">DISTINCTCOUNT</span>( 'Driver Montly Metrics'[driver_id] )</div>
+</div>
+
+
+<!-- DAX FLEET -->
+<div class="section" id="dax-fleet">
+  <div class="section-eyebrow">Section 02 · Dashboard 3</div>
+  <h2>DAX Measures — Fleet & Maintenance</h2>
+  <p class="section-intro">6 measures covering truck utilisation, maintenance costs, downtime, and MPG trends.</p>
+
+  <h3>Total Maintenance Cost <span class="badge b-kpi">KPI Card</span></h3>
+  <div class="dax" id="d13"><button class="copy-btn" onclick="cp('d13')">copy</button><span class="fn">Total Maintenance Cost</span> <span class="op">=</span>
+<span class="kw">SUM</span>( 'Maintenance records'[total_cost] )</div>
+
+  <h3>Avg Fleet Utilisation Rate <span class="badge b-kpi">KPI Card</span></h3>
+  <p>Format this as a percentage with 1 decimal place. Came out at 83.0%.</p>
+  <div class="dax" id="d14"><button class="copy-btn" onclick="cp('d14')">copy</button><span class="fn">Avg Fleet Utilisation Rate</span> <span class="op">=</span>
+<span class="kw">AVERAGE</span>( 'Trucks utilization metrics'[utilization_rate] )</div>
+
+  <h3>Total Downtime Hours <span class="badge b-kpi">KPI Card</span></h3>
+  <div class="dax" id="d15"><button class="copy-btn" onclick="cp('d15')">copy</button><span class="fn">Total Downtime Hours</span> <span class="op">=</span>
+<span class="kw">SUM</span>( 'Maintenance records'[downtime_hours] )</div>
+
+  <h3>Monthly Utilisation Rate <span class="badge b-chart">Line Chart</span></h3>
+  <p>Set Y-axis min = 78%, max = 88% to make the monthly variation visible. Add Year to Legend for 3 coloured lines.</p>
+  <div class="dax" id="d16"><button class="copy-btn" onclick="cp('d16')">copy</button><span class="fn">Monthly Utilisation Rate</span> <span class="op">=</span>
+<span class="kw">CALCULATE</span>(
+    <span class="kw">AVERAGE</span>( 'Trucks utilization metrics'[utilization_rate] ),
+    <span class="kw">ALLEXCEPT</span>( 'Trucks utilization metrics', 'Trucks utilization metrics'[month] )
+)</div>
+
+  <h3>Maintenance Cost by Type <span class="badge b-chart">Donut Chart</span></h3>
+  <div class="dax" id="d17"><button class="copy-btn" onclick="cp('d17')">copy</button><span class="fn">Maintenance Cost by Type</span> <span class="op">=</span>
+<span class="kw">CALCULATE</span>(
+    <span class="kw">SUM</span>( 'Maintenance records'[total_cost] ),
+    <span class="kw">ALLEXCEPT</span>( 'Maintenance records', 'Maintenance records'[maintenance_type] )
+)</div>
+
+  <h3>Fleet MPG Monthly <span class="badge b-chart">Line Chart</span></h3>
+  <p>Set Y-axis min = 6.40, max = 6.60 so the tiny variations between months are actually visible. Without zooming in, the line looks completely flat.</p>
+  <div class="dax" id="d18"><button class="copy-btn" onclick="cp('d18')">copy</button><span class="fn">Fleet MPG Monthly</span> <span class="op">=</span>
+<span class="kw">CALCULATE</span>(
+    <span class="kw">AVERAGE</span>( 'Trucks utilization metrics'[average_mpg] ),
+    <span class="kw">ALLEXCEPT</span>( 'Trucks utilization metrics', 'Trucks utilization metrics'[month] )
+)</div>
+</div>
+
+
+<!-- DAX SAFETY -->
+<div class="section" id="dax-safety">
+  <div class="section-eyebrow">Section 02 · Dashboard 4</div>
+  <h2>DAX Measures — Safety & Fuel</h2>
+  <p class="section-intro">7 measures for the safety and fuel dashboard. The Preventable Rate measure is particularly important — it answers the question every safety manager wants to know.</p>
+
+  <h3>Total Incidents <span class="badge b-kpi">KPI Card</span></h3>
+  <div class="dax" id="d19"><button class="copy-btn" onclick="cp('d19')">copy</button><span class="fn">Total Incidents</span> <span class="op">=</span>
+<span class="kw">COUNTROWS</span>( 'Safety incidents' )</div>
+
+  <h3>Total Claims Amount <span class="badge b-kpi">KPI Card</span></h3>
+  <div class="dax" id="d20"><button class="copy-btn" onclick="cp('d20')">copy</button><span class="fn">Total Claims Amount</span> <span class="op">=</span>
+<span class="kw">SUM</span>( 'Safety incidents'[claim_amount] )</div>
+
+  <h3>Preventable Incident Rate <span class="badge b-kpi">KPI Card</span></h3>
+  <p>This one divides preventable incidents by total incidents. Came out at 37.6% — meaning over a third of all accidents could have been avoided.</p>
+  <div class="dax" id="d21"><button class="copy-btn" onclick="cp('d21')">copy</button><span class="fn">Preventable Incident Rate</span> <span class="op">=</span>
+<span class="kw">DIVIDE</span>(
+    <span class="kw">CALCULATE</span>(
+        <span class="kw">COUNTROWS</span>( 'Safety incidents' ),
+        'Safety incidents'[preventable_flag] <span class="op">=</span> <span class="kw">TRUE</span>()
+    ),
+    <span class="kw">COUNTROWS</span>( 'Safety incidents' )
+)</div>
+
+  <h3>Total Fuel Cost <span class="badge b-kpi">KPI Card</span></h3>
+  <div class="dax" id="d22"><button class="copy-btn" onclick="cp('d22')">copy</button><span class="fn">Total Fuel Cost</span> <span class="op">=</span>
+<span class="kw">SUM</span>( Purchases[total_cost] )</div>
+
+  <h3>Monthly Fuel Cost <span class="badge b-chart">Line Chart</span></h3>
+  <p>Add Year to Legend to show all 3 years as separate lines. The downward trend from 2022 to 2024 tells the fuel cost saving story clearly.</p>
+  <div class="dax" id="d23"><button class="copy-btn" onclick="cp('d23')">copy</button><span class="fn">Monthly Fuel Cost</span> <span class="op">=</span>
+<span class="kw">CALCULATE</span>(
+    <span class="kw">SUM</span>( Purchases[total_cost] ),
+    <span class="kw">ALLEXCEPT</span>( Purchases, Purchases[purchase_date] )
+)</div>
+
+  <h3>Avg Price per Gallon <span class="badge b-chart">Line Chart</span></h3>
+  <p>Divides total fuel cost by total gallons. Set Y-axis min = $3.40, max = $4.40 so the year-on-year price drop is visible.</p>
+  <div class="dax" id="d24"><button class="copy-btn" onclick="cp('d24')">copy</button><span class="fn">Avg Price per Gallon</span> <span class="op">=</span>
+<span class="kw">DIVIDE</span>(
+    <span class="kw">SUM</span>( Purchases[total_cost] ),
+    <span class="kw">SUM</span>( Purchases[gallons] )
+)</div>
+
+  <h3>Claims by Incident Type <span class="badge b-chart">Horizontal Bar</span></h3>
+  <div class="dax" id="d25"><button class="copy-btn" onclick="cp('d25')">copy</button><span class="fn">Claims by Incident Type</span> <span class="op">=</span>
+<span class="kw">CALCULATE</span>(
+    <span class="kw">SUM</span>( 'Safety incidents'[claim_amount] ),
+    <span class="kw">ALLEXCEPT</span>( 'Safety incidents', 'Safety incidents'[incident_type] )
+)</div>
+</div>
+
+
+<!-- DAX PROFIT FIX -->
+<div class="section" id="dax-profit">
+  <div class="section-eyebrow">Section 02 · Profit Fix</div>
+  <h2>Profit DAX — Correct Formula</h2>
+  <p class="section-intro">If your profit is showing $231M instead of $158.5M, it means the Purchases table is not being picked up by your measure. Here is why that happens and how to fix it.</p>
+
+  <div class="compare">
+    <div class="cmp cmp-wrong">
+      <div class="cmp-label">❌ What gives you $231M (wrong)</div>
+      <div class="cmp-title">Fuel cost not included</div>
+      <p>The Purchases table has no direct relationship to Loads. If your measure just subtracts maintenance and safety claims, Power BI ignores the $95.6M fuel cost entirely — leaving you with an inflated profit number.</p>
+    </div>
+    <div class="cmp cmp-right">
+      <div class="cmp-label">✅ Correct approach</div>
+      <div class="cmp-title">Wrap each table in CALCULATE separately</div>
+      <p>Using CALCULATE independently for each cost table forces Power BI to evaluate them on their own — even if the relationships are not perfect. This pulls in the full $95.6M fuel spend correctly.</p>
+    </div>
+  </div>
+
+  <h3>Correct Profit Measure</h3>
+  <div class="dax" id="d26"><button class="copy-btn" onclick="cp('d26')">copy</button><span class="fn">Profit</span> <span class="op">=</span>
+<span class="kw">CALCULATE</span>( <span class="kw">SUM</span>( Loads[revenue] ) )
+<span class="op">-</span> <span class="kw">CALCULATE</span>( <span class="kw">SUM</span>( Purchases[total_cost] ) )
+<span class="op">-</span> <span class="kw">CALCULATE</span>( <span class="kw">SUM</span>( <span class="str">'Maintenance records'</span>[total_cost] ) )
+<span class="op">-</span> <span class="kw">CALCULATE</span>( <span class="kw">SUM</span>( <span class="str">'Safety incidents'</span>[claim_amount] ) )
+
+<span class="cm">-- Expected result: $158,549,063  (Profit Margin: 60.4%)</span></div>
+
+  <div class="kpi-row">
+    <div class="kpi-box"><div class="kpi-val">$262.5M</div><div class="kpi-lbl">Revenue</div></div>
+    <div class="kpi-box"><div class="kpi-val" style="color:#FCA5A5">$104.0M</div><div class="kpi-lbl">Total Costs</div></div>
+    <div class="kpi-box"><div class="kpi-val" style="color:#86EFAC">$158.5M</div><div class="kpi-lbl">Profit</div></div>
+    <div class="kpi-box"><div class="kpi-val" style="color:#F5C97A">60.4%</div><div class="kpi-lbl">Profit Margin</div></div>
+  </div>
+
+  <div class="highlight warn">
+    <div class="highlight-icon">⚠️</div>
+    <div class="highlight-body">Also go to <strong>Model view</strong> and confirm there is a line connecting <strong>Purchases → Trips</strong> via trip_id. If that line is missing, Power BI ignores the Purchases table entirely when it calculates costs.</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SECTION 3 — CHART AXIS GUIDE
+══════════════════════════════════════════ -->
+<div class="section" id="charts-revenue">
+  <div class="section-eyebrow">Section 03 · Dashboard 1</div>
+  <h2>Chart Axis Guide — Revenue</h2>
+  <p class="section-intro">Exactly what to drag into each field well for every chart on the Revenue dashboard.</p>
+
+  <h3>Monthly Revenue Trend — Line Chart</h3>
+  <div class="axis-grid">
+    <div class="ax-block ax-x"><div class="ax-lbl">↔ X-Axis</div><div class="ax-field">load_date → Month</div><div class="ax-tbl">Table: Loads</div><div class="ax-note">Expand the date hierarchy and set to Month level. Shows Jan–Dec along the bottom.</div></div>
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Y-Axis</div><div class="ax-field">Revenue by Month</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">One point per month. The line shows total revenue for that month.</div></div>
+    <div class="ax-block ax-leg"><div class="ax-lbl">◈ Legend</div><div class="ax-field">Year (from load_date)</div><div class="ax-tbl">Table: Loads</div><div class="ax-note">Drag Year into Legend. Creates 3 separate coloured lines — 2022, 2023, 2024.</div></div>
+  </div>
+
+  <h3>Revenue by Booking Type — Donut Chart</h3>
+  <div class="axis-grid-2">
+    <div class="ax-block ax-x"><div class="ax-lbl">◑ Legend (Slices)</div><div class="ax-field">booking_type</div><div class="ax-tbl">Table: Loads</div><div class="ax-note">3 values: Dedicated, Spot, Contract. Each becomes one slice of the donut.</div></div>
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Values</div><div class="ax-field">Total Revenue</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">Slice size = revenue share. Dedicated will be the biggest slice at 49.6%.</div></div>
+  </div>
+
+  <h3>Quarterly Revenue — Column Bar Chart</h3>
+  <div class="axis-grid-2">
+    <div class="ax-block ax-x"><div class="ax-lbl">↔ X-Axis</div><div class="ax-field">load_date → Quarter</div><div class="ax-tbl">Table: Loads</div><div class="ax-note">Expand date hierarchy → drag Quarter. You will get 12 bars: Q1–Q4 for each of the 3 years.</div></div>
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Y-Axis</div><div class="ax-field">Total Revenue</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">Set Y-axis minimum to 20,000,000 so the small differences between quarters are visible.</div></div>
+  </div>
+
+  <h3>Revenue by Load Type — Donut Chart</h3>
+  <div class="axis-grid-2">
+    <div class="ax-block ax-x"><div class="ax-lbl">◑ Legend (Slices)</div><div class="ax-field">load_type</div><div class="ax-tbl">Table: Loads</div><div class="ax-note">2 values: Dry Van and Refrigerated. Near 50/50 split.</div></div>
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Values</div><div class="ax-field">Total Revenue</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">Refrigerated $132M vs Dry Van $131M — almost identical.</div></div>
+  </div>
+</div>
+
+<div class="section" id="charts-driver">
+  <div class="section-eyebrow">Section 03 · Dashboard 2</div>
+  <h2>Chart Axis Guide — Driver Performance</h2>
+  <p class="section-intro">The driver ranking charts need a bit more setup than the others — especially the Top N filter.</p>
+
+  <h3>Top 10 Drivers OTD Rate — Horizontal Bar</h3>
+  <div class="axis-grid">
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Y-Axis (Names)</div><div class="ax-field">Driver Name</div><div class="ax-tbl">Calculated column: Drivers</div><div class="ax-note">Create a calculated column first: <strong>Driver Name = Drivers[first_name] & " " & Drivers[last_name]</strong></div></div>
+    <div class="ax-block ax-x"><div class="ax-lbl">↔ X-Axis (Bar Length)</div><div class="ax-field">Driver Avg OTD Rate</div><div class="ax-tbl">DAX Measure (AVERAGEX)</div><div class="ax-note">Use the measure — not the raw column. Raw column defaults to SUM and gives wrong rankings.</div></div>
+    <div class="ax-block ax-flt"><div class="ax-lbl">⬡ Filter</div><div class="ax-field">Top N = 10</div><div class="ax-tbl">Visual-level filter pane</div><div class="ax-note">Filters pane → Driver Name → Top N → 10 → By value: Driver Avg OTD Rate → Apply filter.</div></div>
+  </div>
+
+  <h3>Monthly OTD Trend — Line Chart</h3>
+  <div class="axis-grid">
+    <div class="ax-block ax-x"><div class="ax-lbl">↔ X-Axis</div><div class="ax-field">month → Month level</div><div class="ax-tbl">Driver Montly Metrics</div><div class="ax-note">Shows Jan–Dec. Set Y-axis min = 40, max = 50 to zoom in on the variation.</div></div>
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Y-Axis</div><div class="ax-field">Fleet Avg OTD Rate</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">Fleet average per month. The line stays frustratingly flat between 43–47%.</div></div>
+    <div class="ax-block ax-leg"><div class="ax-lbl">◈ Legend</div><div class="ax-field">Year (from month)</div><div class="ax-tbl">Driver Montly Metrics</div><div class="ax-note">3 year lines. They overlap a lot — which is the point. No year was better than another.</div></div>
+  </div>
+
+  <h3>Driver OTD Distribution — Column Chart</h3>
+  <div class="axis-grid-2">
+    <div class="ax-block ax-x"><div class="ax-lbl">↔ X-Axis</div><div class="ax-field">OTD Bucket</div><div class="ax-tbl">Calculated column: Driver Montly Metrics</div><div class="ax-note">4 buckets only: 36–40%, 40–44%, 44–48%, 48–52%. No driver falls outside this range.</div></div>
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Y-Axis</div><div class="ax-field">Driver Count</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">Bar height = number of drivers in each bucket. Tallest bar is 44–48% with 73 drivers.</div></div>
+  </div>
+</div>
+
+<div class="section" id="charts-fleet">
+  <div class="section-eyebrow">Section 03 · Dashboard 3</div>
+  <h2>Chart Axis Guide — Fleet & Maintenance</h2>
+
+  <h3>Monthly Utilisation Rate — Line Chart</h3>
+  <div class="axis-grid">
+    <div class="ax-block ax-x"><div class="ax-lbl">↔ X-Axis</div><div class="ax-field">month → Month level</div><div class="ax-tbl">Trucks utilization metrics</div><div class="ax-note">Set Y-axis min = 78%, max = 88% to show the variation. Without this it looks completely flat.</div></div>
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Y-Axis</div><div class="ax-field">Monthly Utilisation Rate</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">Format as percentage. Fleet holds steady at 83% — good consistent asset deployment.</div></div>
+    <div class="ax-block ax-leg"><div class="ax-lbl">◈ Legend</div><div class="ax-field">Year (from month)</div><div class="ax-tbl">Trucks utilization metrics</div><div class="ax-note">3 year lines. All close together — utilisation was consistent year over year.</div></div>
+  </div>
+
+  <h3>Maintenance Cost Breakdown — Donut Chart</h3>
+  <div class="axis-grid-2">
+    <div class="ax-block ax-x"><div class="ax-lbl">◑ Legend (Slices)</div><div class="ax-field">maintenance_type</div><div class="ax-tbl">Maintenance records</div><div class="ax-note">7 slices: Preventive, Repair, Tire, Brake, Engine, Transmission, Inspection. All roughly equal.</div></div>
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Values</div><div class="ax-field">Maintenance Cost by Type</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">Each slice = cost of that repair category. Total $5.73M split almost evenly between 7 types.</div></div>
+  </div>
+
+  <h3>Fleet MPG Monthly — Line Chart</h3>
+  <div class="axis-grid">
+    <div class="ax-block ax-x"><div class="ax-lbl">↔ X-Axis</div><div class="ax-field">month → Month level</div><div class="ax-tbl">Trucks utilization metrics</div><div class="ax-note">Set Y-axis min = 6.40, max = 6.60. Without zooming the line looks completely flat because the range is so small.</div></div>
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Y-Axis</div><div class="ax-field">Fleet MPG Monthly</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">Format to 2 decimal places. Range is only 6.48–6.53 across 36 months.</div></div>
+    <div class="ax-block ax-leg"><div class="ax-lbl">◈ Legend</div><div class="ax-field">Year (from month)</div><div class="ax-tbl">Trucks utilization metrics</div><div class="ax-note">3 almost identical lines — the story here is consistency, not change.</div></div>
+  </div>
+</div>
+
+<div class="section" id="charts-safety">
+  <div class="section-eyebrow">Section 03 · Dashboard 4</div>
+  <h2>Chart Axis Guide — Safety & Fuel</h2>
+
+  <h3>Monthly Fuel Cost — Line Chart</h3>
+  <div class="axis-grid">
+    <div class="ax-block ax-x"><div class="ax-lbl">↔ X-Axis</div><div class="ax-field">purchase_date → Month</div><div class="ax-tbl">Purchases</div><div class="ax-note">Shows Jan–Dec. The 3 year lines clearly show 2022 (highest) dropping to 2024 (lowest).</div></div>
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Y-Axis</div><div class="ax-field">Monthly Fuel Cost</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">Each dot = total fuel spend that month. 2022 averaged $2.87M/month. 2024 averaged $2.51M/month.</div></div>
+    <div class="ax-block ax-leg"><div class="ax-lbl">◈ Legend</div><div class="ax-field">Year (from purchase_date)</div><div class="ax-tbl">Purchases</div><div class="ax-note">The downward shift from one year line to the next shows the $4.3M saving clearly.</div></div>
+  </div>
+
+  <h3>Safety Claims by Incident Type — Horizontal Bar</h3>
+  <div class="axis-grid-2">
+    <div class="ax-block ax-y"><div class="ax-lbl">↕ Y-Axis (Categories)</div><div class="ax-field">incident_type</div><div class="ax-tbl">Safety incidents</div><div class="ax-note">5 types. Use horizontal so the long names fit without rotating. Sort descending.</div></div>
+    <div class="ax-block ax-x"><div class="ax-lbl">↔ X-Axis (Bar Length)</div><div class="ax-field">Claims by Incident Type</div><div class="ax-tbl">DAX Measure</div><div class="ax-note">Equipment Damage ($741K) is the longest bar. Format as $ currency.</div></div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SECTION 4 — DRIVER CHART FIX
+══════════════════════════════════════════ -->
+<div class="section" id="driver-fix">
+  <div class="section-eyebrow">Section 04</div>
+  <h2>Driver Chart Fix</h2>
+  <p class="section-intro">Two charts on the driver dashboard gave wrong results when first built. Here is exactly what went wrong and how to fix it.</p>
+
+  <h3>Fix 1 — Top 10 OTD ranking is in the wrong order</h3>
+  <div class="compare">
+    <div class="cmp cmp-wrong">
+      <div class="cmp-label">❌ Why it happened</div>
+      <div class="cmp-title">Power BI defaulted to SUM</div>
+      <p>When you drag the raw on_time_delivery_rate column into the X-axis, Power BI defaults to SUM — it adds up all 36 monthly values per driver instead of averaging them. Drivers with more months of data appear ranked higher. The rankings look completely different from what the actual averages show.</p>
+    </div>
+    <div class="cmp cmp-right">
+      <div class="cmp-label">✅ The fix</div>
+      <div class="cmp-title">Use the DAX measure with AVERAGEX</div>
+      <p>Create the Driver Avg OTD Rate measure using AVERAGEX and drag the measure — not the column — into the X-axis. The correct top driver is Jessica Johnson at 50.8%, not whoever Power BI was showing before.</p>
+    </div>
+  </div>
+
+  <h3>Correct Top 10 OTD ranking from the actual data</h3>
+  <table class="data-table">
+    <thead><tr><th>Rank</th><th>Driver Name</th><th>Avg OTD Rate</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Jessica Johnson</td><td>50.8%</td></tr>
+      <tr><td>2</td><td>Michael Thomas</td><td>49.0%</td></tr>
+      <tr><td>3</td><td>Mary Williams</td><td>48.8%</td></tr>
+      <tr><td>4</td><td>Jennifer Martinez</td><td>48.3%</td></tr>
+      <tr><td>5</td><td>Joseph Martinez</td><td>48.3%</td></tr>
+      <tr><td>6</td><td>Charles Moore</td><td>48.1%</td></tr>
+      <tr><td>7</td><td>Jessica Thomas</td><td>47.9%</td></tr>
+      <tr><td>8</td><td>Jennifer Miller</td><td>47.9%</td></tr>
+      <tr><td>9</td><td>Richard Hernandez</td><td>47.8%</td></tr>
+      <tr><td>10</td><td>Joseph Jones</td><td>47.7%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Fix 2 — OTD distribution chart has wrong buckets</h3>
+  <div class="compare">
+    <div class="cmp cmp-wrong">
+      <div class="cmp-label">❌ Why it happened</div>
+      <div class="cmp-title">Buckets included empty ranges</div>
+      <p>The original bucket formula included ranges below 36% and above 52%. No driver in the dataset actually falls in those ranges — so those bars showed zero, making the chart look broken and unbalanced.</p>
+    </div>
+    <div class="cmp cmp-right">
+      <div class="cmp-label">✅ The fix</div>
+      <div class="cmp-title">Use only 4 buckets that match the real data</div>
+      <p>All 150 drivers fall between 36.5% and 50.8%. Use exactly 4 buckets: 36–40%, 40–44%, 44–48%, 48–52%. The chart will now show a proper bell-shaped distribution with 44–48% as the tallest bar.</p>
+    </div>
+  </div>
+
+  <h3>Corrected OTD Bucket calculated column</h3>
+  <div class="dax" id="d27"><button class="copy-btn" onclick="cp('d27')">copy</button><span class="fn">OTD Bucket</span> <span class="op">=</span>
+<span class="kw">VAR</span> avgOTD <span class="op">=</span>
+    <span class="kw">CALCULATE</span>(
+        <span class="kw">AVERAGE</span>( <span class="str">'Driver Montly Metrics'</span>[on_time_delivery_rate] ),
+        <span class="kw">ALLEXCEPT</span>( <span class="str">'Driver Montly Metrics'</span>, <span class="str">'Driver Montly Metrics'</span>[driver_id] )
+    )
+<span class="kw">RETURN</span>
+    <span class="kw">SWITCH</span>(
+        <span class="kw">TRUE</span>(),
+        avgOTD <span class="op">&lt;</span> 0.40, <span class="str">"1. 36-40%"</span>,
+        avgOTD <span class="op">&lt;</span> 0.44, <span class="str">"2. 40-44%"</span>,
+        avgOTD <span class="op">&lt;</span> 0.48, <span class="str">"3. 44-48%"</span>,
+        <span class="str">"4. 48-52%"</span>
+    )
+<span class="cm">-- Numbers at the front (1. 2. 3. 4.) force the correct sort order</span>
+<span class="cm">-- Without them, Power BI sorts alphabetically and puts 40-44% before 36-40%</span></div>
+
+  <h3>Correct distribution (from the actual data)</h3>
+  <table class="data-table">
+    <thead><tr><th>OTD Bucket</th><th>Driver Count</th><th>% of Fleet</th></tr></thead>
+    <tbody>
+      <tr><td>36–40%</td><td>3</td><td>2%</td></tr>
+      <tr><td>40–44%</td><td>42</td><td>28%</td></tr>
+      <tr><td>44–48%</td><td>73</td><td>49% — peak</td></tr>
+      <tr><td>48–52%</td><td>6</td><td>4%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SECTION 5 — SLICERS
+══════════════════════════════════════════ -->
+<div class="section" id="slicers">
+  <div class="section-eyebrow">Section 05</div>
+  <h2>2 Slicers Per Dashboard</h2>
+  <p class="section-intro">I kept it to 2 slicers per dashboard — the ones that make the most difference. Too many slicers crowds the page and confuses users.</p>
+
+  <h3>Dashboard 1 — Revenue Overview</h3>
+  <div class="slicer-pair">
+    <div class="slicer-card">
+      <div class="slicer-top">
+        <div class="slicer-name">Year <span class="badge b-tile">Tile</span></div>
+        <div class="slicer-col">Loads → load_date → Year</div>
+        <div class="chips"><span class="chip">2022</span><span class="chip">2023</span><span class="chip">2024</span></div>
+      </div>
+      <div class="slicer-bot"><div class="slicer-note">3 clickable tiles. Filters everything on the page at once. Enable multi-select so you can compare two years side by side.</div></div>
+    </div>
+    <div class="slicer-card">
+      <div class="slicer-top">
+        <div class="slicer-name">Booking Type <span class="badge b-tile">Tile</span></div>
+        <div class="slicer-col">Loads → booking_type</div>
+        <div class="chips"><span class="chip">Dedicated</span><span class="chip">Spot</span><span class="chip">Contract</span></div>
+      </div>
+      <div class="slicer-bot"><div class="slicer-note">Instantly filters the entire revenue page to one booking type. Answers: "How did Spot bookings perform in 2023?"</div></div>
+    </div>
+  </div>
+
+  <h3>Dashboard 2 — Driver Performance</h3>
+  <div class="slicer-pair">
+    <div class="slicer-card">
+      <div class="slicer-top">
+        <div class="slicer-name">Employment Status <span class="badge b-tile">Tile</span></div>
+        <div class="slicer-col">Drivers → employment_status</div>
+        <div class="chips"><span class="chip">Active</span><span class="chip">Terminated</span></div>
+      </div>
+      <div class="slicer-bot"><div class="slicer-note">Default this to Active so the dashboard always loads showing current drivers. Without it, terminated drivers skew the rankings.</div></div>
+    </div>
+    <div class="slicer-card">
+      <div class="slicer-top">
+        <div class="slicer-name">Home Terminal <span class="badge b-drop">Dropdown</span></div>
+        <div class="slicer-col">Drivers → home_terminal</div>
+        <div class="chips"><span class="chip">Atlanta</span><span class="chip">Chicago</span><span class="chip">Dallas</span><span class="chip">+ more</span></div>
+      </div>
+      <div class="slicer-bot"><div class="slicer-note">Use Dropdown — there are 25 terminals so tiles would be too cramped. Lets each terminal manager see only their own drivers.</div></div>
+    </div>
+  </div>
+
+  <h3>Dashboard 3 — Fleet & Maintenance</h3>
+  <div class="slicer-pair">
+    <div class="slicer-card">
+      <div class="slicer-top">
+        <div class="slicer-name">Maintenance Type <span class="badge b-list">List</span></div>
+        <div class="slicer-col">Maintenance records → maintenance_type</div>
+        <div class="chips"><span class="chip">Brake</span><span class="chip">Engine</span><span class="chip">Tire</span><span class="chip">Repair</span><span class="chip">+ more</span></div>
+      </div>
+      <div class="slicer-bot"><div class="slicer-note">Checkbox list with multi-select. Selecting Engine isolates all engine repair costs and downtime — the most useful filter on this page.</div></div>
+    </div>
+    <div class="slicer-card">
+      <div class="slicer-top">
+        <div class="slicer-name">Truck Status <span class="badge b-tile">Tile</span></div>
+        <div class="slicer-col">Trucks → status</div>
+        <div class="chips"><span class="chip">Active</span><span class="chip">Maintenance</span><span class="chip">Inactive</span></div>
+      </div>
+      <div class="slicer-bot"><div class="slicer-note">Default to Active. Clicking Maintenance shows only trucks currently in the garage — useful for operations teams managing daily capacity.</div></div>
+    </div>
+  </div>
+
+  <h3>Dashboard 4 — Safety & Fuel</h3>
+  <div class="slicer-pair">
+    <div class="slicer-card">
+      <div class="slicer-top">
+        <div class="slicer-name">Incident Type <span class="badge b-tile">Tile</span></div>
+        <div class="slicer-col">Safety incidents → incident_type</div>
+        <div class="chips"><span class="chip">Accident</span><span class="chip">Equipment Damage</span><span class="chip">DOT Violation</span><span class="chip">+ more</span></div>
+      </div>
+      <div class="slicer-bot"><div class="slicer-note">Clicking Equipment Damage filters all charts to that incident type alone — isolating the $741K top-cost category instantly.</div></div>
+    </div>
+    <div class="slicer-card">
+      <div class="slicer-top">
+        <div class="slicer-name">Preventable Flag <span class="badge b-tile">Tile</span></div>
+        <div class="slicer-col">Safety incidents → preventable_flag</div>
+        <div class="chips"><span class="chip">Preventable</span><span class="chip">Not Preventable</span></div>
+      </div>
+      <div class="slicer-bot"><div class="slicer-note">Rename TRUE/FALSE to readable labels in Power Query first. Selecting Preventable shows only the 64 avoidable incidents and their ~$997K in claims.</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SECTION 6 — ANALYSIS REPORT
+══════════════════════════════════════════ -->
+<div class="section" id="report">
+  <div class="section-eyebrow">Section 06</div>
+  <h2>Analysis Report — Summary</h2>
+  <p class="section-intro">This is the written summary that goes on Pages 5 and 6 of the Power BI report. It explains what the data actually means — not just what it shows.</p>
+
+  <div class="kpi-row">
+    <div class="kpi-box"><div class="kpi-val">$262.5M</div><div class="kpi-lbl">Total Revenue</div></div>
+    <div class="kpi-box"><div class="kpi-val">85,410</div><div class="kpi-lbl">Loads Delivered</div></div>
+    <div class="kpi-box"><div class="kpi-val">83.0%</div><div class="kpi-lbl">Fleet Utilisation</div></div>
+    <div class="kpi-box"><div class="kpi-val">$158.5M</div><div class="kpi-lbl">Profit</div></div>
+  </div>
+
+  <h3>Revenue</h3>
+  <p>The company made $262.5 million over 3 years. Every single quarter landed between $21.5M and $22.2M. That kind of consistency does not happen by accident — it means the business has a reliable customer base and stable demand. Dedicated bookings drive 49.6% of all revenue, which is the right kind of income — predictable and recurring.</p>
+
+  <h3>Driver Performance</h3>
+  <p>The fleet OTD rate of 44.6% is the most important finding in the whole dataset. Less than half of deliveries arrived on time — and this did not improve at all across three years. When you look at the distribution, 73 out of 150 drivers all cluster in the same 44–48% band. That tells you this is not a driver problem. You cannot coach 73 people into better performance when the same constraint is holding all of them back. The problem is the system — the scheduling, the routes, or the customer time windows.</p>
+
+  <h3>Fleet & Maintenance</h3>
+  <p>The trucks ran at 83% utilisation on average — solid, but it means 17% of fleet capacity sits idle. That is roughly 20 trucks worth of capacity available to take on more loads without buying a single new vehicle. Fleet MPG held at exactly 6.50 across all 36 months. That level of consistency across 120 trucks over 3 years is genuinely impressive — it points to good maintenance discipline and a standardised fleet.</p>
+
+  <h3>Safety & Fuel</h3>
+  <p>Fuel spend dropped by $4.3 million from 2022 to 2024. That sounds great until you realise none of it came from the fleet getting more efficient — it was entirely because the price of fuel fell. The MPG did not move. That means the moment fuel prices go back up, that saving disappears. Building actual driver efficiency habits would create savings that survive a price rise.</p>
+  <p>170 safety incidents generated $2.65M in claims. The hard number is this: 64 of those incidents — 37.6% — were classified as preventable. That is roughly $997,000 in claims that did not have to happen. Equipment Damage was the biggest single cost at $741K across 35 incidents.</p>
+
+  <h3>4 Recommendations</h3>
+  <div class="card">
+    <div class="card-title">1. Fix the OTD rate</div>
+    <p>Review route scheduling and customer time-window commitments. The goal should be 50%+ fleet average. This would directly reduce Customer Complaint claims and strengthen contract renewals.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">2. Cut preventable incidents</div>
+    <p>Run targeted coaching on Equipment Damage handling and DOT compliance. These two categories alone account for $1.32M in claims. Even cutting preventable incidents by half saves almost $500K per year.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">3. Fill the idle capacity</div>
+    <p>17% of fleet time is unused. That is 20 trucks sitting doing nothing while fixed costs keep running. A sales push to grow Dedicated or Contract bookings would improve revenue without adding any new costs.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">4. Build real fuel efficiency habits</div>
+    <p>The $4.3M fuel saving is all from cheaper pump prices — not from drivers or operations doing anything differently. Idle reduction programmes and speed compliance training would lock in savings regardless of what the market does next.</p>
+  </div>
+
+  <div class="highlight good" style="margin-top:32px">
+    <div class="highlight-icon">🎓</div>
+    <div class="highlight-body"><strong>About this project.</strong> This was my final project at TS Academy as part of the Data Analytics programme. I started with 14 raw Excel files, joined them into one clean workbook, loaded them into Power BI, built 4 dashboards, wrote 25 DAX measures, set up slicers, fixed chart issues as they came up, and wrote a full management report. The whole thing took real problem solving — not just following instructions. I am proud of what came out of it.</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <div class="footer-brand">Capson Logistics Project</div>
+    <div class="footer-sub">Data Analytics Final Project · TS Academy</div>
+  </div>
+  <div class="footer-meta">
+    4 Dashboards · 25 DAX Measures<br>
+    85,410 Loads · $262.5M Analysed
+  </div>
+</div>
+
+</main>
+
+<script>
+// copy DAX
+function cp(id) {
+  const el = document.getElementById(id);
+  const txt = el.innerText.replace('copy','').trim();
+  navigator.clipboard.writeText(txt).then(() => {
+    const btn = el.querySelector('.copy-btn');
+    btn.textContent = 'copied!';
+    setTimeout(() => btn.textContent = 'copy', 1800);
+  });
+}
+
+// active nav link on scroll
+const sections = document.querySelectorAll('.section, .hero');
+const links = document.querySelectorAll('.nav-link');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const id = e.target.id;
+      const active = document.querySelector(`.nav-link[href="#${id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
